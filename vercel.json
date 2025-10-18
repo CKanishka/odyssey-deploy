@@ -2,17 +2,17 @@
   "version": 2,
   "buildCommand": "npm install && npm run build --workspace=client && cd server && npm install && npx prisma generate && npm run build",
   "outputDirectory": "client/dist",
-  "installCommand": "npm install",
+  "framework": "vite",
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/:path*",
       "destination": "/api"
     }
   ],
   "functions": {
     "api/index.js": {
       "runtime": "nodejs20.x",
-      "includeFiles": ["server/prisma/**", "server/dist/**"]
+      "includeFiles": "server/**"
     }
   }
 }
