@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd ./client && npm install && npm run build && cd ../server && npm install && npx prisma generate && npm run build",
+  "buildCommand": "npm install && npm run build --workspace=client && npm run build --workspace=server",
   "outputDirectory": "client/dist",
   "framework": "vite",
   "rewrites": [
