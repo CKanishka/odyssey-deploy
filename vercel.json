@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm install && npm run build --workspace=client && npm run build --workspace=server",
+  "installCommand": "npm --prefix client install && npm --prefix server install",
+  "buildCommand": "npm --prefix client run build && npm --prefix server run build",
   "outputDirectory": "client/dist",
   "framework": "vite",
   "rewrites": [
