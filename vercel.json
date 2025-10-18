@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "buildCommand": "npm install && npm run build && cd ../server && npm install && npm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "cd client && npm install && npm run build && cd ../server && npm install && npm run build",
+  "outputDirectory": "client/dist",
   "installCommand": "echo 'Skipping default install'",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "/api"
+      "src": "/api/(.*)",
+      "dest": "/api"
     }
   ],
   "functions": {
     "api/index.js": {
       "runtime": "nodejs20.x",
-      "includeFiles": "server/**"
+      "includeFiles": "server/dist/**"
     }
   }
 }
